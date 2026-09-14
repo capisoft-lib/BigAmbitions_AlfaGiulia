@@ -1,0 +1,8 @@
+System.Collections.Generic.Queue`1: System -> mscorlib
+System.Runtime.CompilerServices.ExtensionAttribute: System.Core -> mscorlib
+System.Collections.Generic.Stack`1: System -> mscorlib
+MonoMod.Backports.MethodImplOptionsEx: System -> 0Harmony (merged definition)
+System.Runtime.CompilerServices.Unsafe: System -> 0Harmony (merged definition)
+MonoMod.Backports.ILHelpers.UnsafeRaw: System -> 0Harmony (merged definition)
+Assembly renamed to AlfaGiulia.Harmony and unsigned to avoid duplicate Unity plugin names; runtime shares an existing compatible Harmony provider when available.
+

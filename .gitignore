@@ -1,0 +1,42 @@
+# Build outputs
+bin/
+obj/
+Obj/
+Output/
+Library/
+Temp/
+Logs/
+*.dll
+*.pdb
+*.exe
+
+# Unity / IDE generated
+*.csproj
+*.sln
+*.user
+*.userprefs
+.vs/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.jks
+local.paths.json
+*.local.props
+secrets/
+
+# Logs and scratch
+*.log
+build-*.log
+_tmp_*/
+_backup_*/
+

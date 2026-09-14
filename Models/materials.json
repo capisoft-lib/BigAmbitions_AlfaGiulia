@@ -1,0 +1,333 @@
+{
+  "materials": [
+    {
+      "name": "Surface00",
+      "source": "color_Int",
+      "color": [
+        0.5,
+        0.004751281766483114,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.3459058160939157,
+      "smoothness": 0.5626653338372078,
+      "normal": "Surface00_normal.png",
+      "texture": "Surface00_texture.png"
+    },
+    {
+      "name": "Surface01",
+      "source": "emiss",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "smoothness": 1.0,
+      "texture": "Surface01_texture.png"
+    },
+    {
+      "name": "Surface02",
+      "source": "light_glass",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        0.5043824895466348
+      ],
+      "metallic": 0.0,
+      "smoothness": 1.0
+    },
+    {
+      "name": "Surface03",
+      "source": "orange_glass",
+      "color": [
+        0.876,
+        0.134773,
+        0.0,
+        0.25
+      ],
+      "metallic": 0.0,
+      "smoothness": 1.0
+    },
+    {
+      "name": "Surface04",
+      "source": "phong5",
+      "color": [
+        0.0909091,
+        0.0909091,
+        0.0909091,
+        1.0
+      ],
+      "metallic": 0.6019065962867696,
+      "smoothness": 0.7150467506186686
+    },
+    {
+      "name": "Surface05",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017_Wheel1A_3D_3DWhee",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.5836208262729943,
+      "smoothness": 0.7272372639611855,
+      "texture": "Surface05_texture.png",
+      "normal": "Surface05_normal.png"
+    },
+    {
+      "name": "Surface06",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017BadgeA_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.8152405797808145,
+      "smoothness": 0.7820945740025113,
+      "texture": "Surface06_texture.png",
+      "normal": "Surface06_normal.png"
+    },
+    {
+      "name": "Surface07",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Base_Material1",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "smoothness": 0.25790250027428663
+    },
+    {
+      "name": "Surface08",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017CalliperBadgeA_Mat",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.6994307030269045,
+      "smoothness": 0.2152357035754776,
+      "texture": "Surface08_texture.png"
+    },
+    {
+      "name": "Surface09",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017CalliperGloss_Mate",
+      "color": [
+        0.5757194013916181,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.7055259596981628,
+      "smoothness": 0.6230030450580284,
+      "normal": "Surface09_normal.png"
+    },
+    {
+      "name": "Surface10",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Carbon1_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.4,
+      "smoothness": 0.3769969549419716,
+      "texture": "Surface10_texture.png"
+    },
+    {
+      "name": "Surface11",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Coloured_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.8457168631371066,
+      "smoothness": 0.8735234240713876,
+      "texture": "Surface11_texture.png"
+    },
+    {
+      "name": "Surface12",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017EngineA_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.7847642964245224,
+      "smoothness": 0.5139032804671405,
+      "texture": "Surface12_texture.png",
+      "normal": "Surface12_normal.png"
+    },
+    {
+      "name": "Surface13",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Grille1A_Material1",
+      "color": [
+        0.6994307030269045,
+        0.6994307030269045,
+        0.6994307030269045,
+        1.0
+      ],
+      "metallic": 0.9188599431922078,
+      "smoothness": 0.5443795638234326,
+      "normal": "Surface13_normal.png",
+      "texture": "Surface13_texture.png"
+    },
+    {
+      "name": "Surface14",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Grille2A_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.7847642964245224,
+      "smoothness": 0.3371408370006461,
+      "texture": "Surface14_texture.png",
+      "normal": "Surface14_normal.png"
+    },
+    {
+      "name": "Surface15",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Grille3A_Material1",
+      "color": [
+        0.6567639063280954,
+        0.6567639063280954,
+        0.6567639063280954,
+        1.0
+      ],
+      "metallic": 0.9066694298496909,
+      "smoothness": 0.8308566273725787,
+      "normal": "Surface15_normal.png",
+      "texture": "Surface15_texture.png"
+    },
+    {
+      "name": "Surface16",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Grille4A_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.7603832697394887,
+      "smoothness": 0.46514122709707306,
+      "texture": "Surface16_texture.png",
+      "normal": "Surface16_normal.png"
+    },
+    {
+      "name": "Surface17",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Grille5A_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.8274310931233314,
+      "smoothness": 0.391998147041972,
+      "texture": "Surface17_texture.png",
+      "normal": "Surface17_normal.png"
+    },
+    {
+      "name": "Surface18",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Grille6A_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.7664785264107471,
+      "smoothness": 0.7333325206324439,
+      "texture": "Surface18_texture.png",
+      "normal": "Surface18_normal.png"
+    },
+    {
+      "name": "Surface19",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017InteriorA_Material",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.6445733929855786,
+      "smoothness": 0.4529507137545562,
+      "texture": "Surface19_texture.png",
+      "normal": "Surface19_normal.png"
+    },
+    {
+      "name": "Surface20",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017LightA_Material1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.6628591629993539,
+      "smoothness": 0.7211420072899271,
+      "texture": "Surface20_texture.png"
+    },
+    {
+      "name": "Surface21",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017ManufacturerPlateA",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "smoothness": 0,
+      "texture": "Surface21_texture.png"
+    },
+    {
+      "name": "Surface22",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Paint_Material1",
+      "color": [
+        0.3636653735842167,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.3032390193951067,
+      "smoothness": 0.9527617607977472
+    },
+    {
+      "name": "Surface23",
+      "source": "QuadrifoglioAlfaRomeo_GiuliaQuadrifoglio_2017Window_Material1",
+      "color": [
+        0.025,
+        0.045,
+        0.06,
+        1
+      ],
+      "metallic": 0.2,
+      "smoothness": 0.9
+    },
+    {
+      "name": "Surface24",
+      "source": "red_glass",
+      "color": [
+        0.5,
+        0.0,
+        0.0,
+        0.25
+      ],
+      "metallic": 0.0,
+      "smoothness": 1.0
+    }
+  ]
+}

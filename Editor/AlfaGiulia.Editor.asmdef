@@ -1,0 +1,9 @@
+{
+  "name": "AlfaGiulia.Editor",
+  "references": ["AlfaGiulia", "ModBuilder.Editor", "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.HighDefinition.Runtime"],
+  "includePlatforms": ["Editor"],
+  "overrideReferences": true,
+  "precompiledReferences": ["BigAmbitions.dll", "BigAmbitions.ModAPI.dll", "BigAmbitions.Characters.dll", "BigAmbitions.Items.dll", "BigAmbitions.Tags.dll", "HGExtensions.dll", "HGPlugins.dll", "ExternalPlugins.dll"],
+  "autoReferenced": false,
+  "defineConstraints": ["BA_GAME_DLLS_IMPORTED"]
+}
