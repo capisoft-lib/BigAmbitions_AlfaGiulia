@@ -1,4 +1,4 @@
-[h1]Alfa Romeo Giulia Quadrifoglio (2016) — 1.0.6[/h1]
+[h1]Alfa Romeo Giulia Quadrifoglio (2016) — 1.0.7[/h1]
 Retrouvez la berline sportive italienne dans Big Ambitions.
 
 [h2]Où l'acheter[/h2]
