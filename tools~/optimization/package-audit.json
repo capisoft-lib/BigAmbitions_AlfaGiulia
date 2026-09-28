@@ -1,0 +1,226 @@
+{
+  "mod": "AlfaGiulia",
+  "version": "1.0.7",
+  "bundles": [
+    {
+      "platform": "Windows",
+      "file": "alfagiulia.unity3d",
+      "sha256": "d6626e3ce23b180f5bba56d382d221324a0b9a72560f07e33e65ef6ff3ec9d00",
+      "bytes": 10628599,
+      "roots": [
+        "assets/mods/alfagiulia/alfagiulia.asset",
+        "assets/mods/alfagiulia/alfagiuliavisual.prefab"
+      ],
+      "meshes": [
+        {
+          "name": "Body",
+          "vertices": 27807,
+          "triangles": 39029
+        },
+        {
+          "name": "RearLampHousing",
+          "vertices": 907,
+          "triangles": 1364
+        },
+        {
+          "name": "CaliperFL",
+          "vertices": 261,
+          "triangles": 246
+        },
+        {
+          "name": "LightRear",
+          "vertices": 4676,
+          "triangles": 7968
+        },
+        {
+          "name": "WheelRR",
+          "vertices": 5072,
+          "triangles": 5834
+        },
+        {
+          "name": "CaliperFR",
+          "vertices": 258,
+          "triangles": 246
+        },
+        {
+          "name": "WheelFL",
+          "vertices": 5085,
+          "triangles": 5834
+        },
+        {
+          "name": "MirrorLenses",
+          "vertices": 381,
+          "triangles": 448
+        },
+        {
+          "name": "Trim",
+          "vertices": 132293,
+          "triangles": 157008
+        },
+        {
+          "name": "CaliperRL",
+          "vertices": 371,
+          "triangles": 384
+        },
+        {
+          "name": "WheelRL",
+          "vertices": 5072,
+          "triangles": 5834
+        },
+        {
+          "name": "CaliperRR",
+          "vertices": 371,
+          "triangles": 384
+        },
+        {
+          "name": "LightReverse",
+          "vertices": 348,
+          "triangles": 116
+        },
+        {
+          "name": "LightRight",
+          "vertices": 700,
+          "triangles": 869
+        },
+        {
+          "name": "LightFront",
+          "vertices": 564,
+          "triangles": 814
+        },
+        {
+          "name": "WheelFR",
+          "vertices": 5082,
+          "triangles": 5834
+        },
+        {
+          "name": "LightLeft",
+          "vertices": 700,
+          "triangles": 869
+        }
+      ],
+      "textureCount": 28,
+      "duplicateTextures": []
+    },
+    {
+      "platform": "Mac",
+      "file": "alfagiulia.unity3d",
+      "sha256": "061225bc792ac1fea3c6c3b3fe7dda6c7bd55ec91e2001fa9085ee4b3459eead",
+      "bytes": 10641402,
+      "roots": [
+        "assets/mods/alfagiulia/alfagiulia.asset",
+        "assets/mods/alfagiulia/alfagiuliavisual.prefab"
+      ],
+      "meshes": [
+        {
+          "name": "Body",
+          "vertices": 27807,
+          "triangles": 39029
+        },
+        {
+          "name": "RearLampHousing",
+          "vertices": 907,
+          "triangles": 1364
+        },
+        {
+          "name": "CaliperFL",
+          "vertices": 261,
+          "triangles": 246
+        },
+        {
+          "name": "LightRear",
+          "vertices": 4676,
+          "triangles": 7968
+        },
+        {
+          "name": "WheelRR",
+          "vertices": 5072,
+          "triangles": 5834
+        },
+        {
+          "name": "CaliperFR",
+          "vertices": 258,
+          "triangles": 246
+        },
+        {
+          "name": "WheelFL",
+          "vertices": 5085,
+          "triangles": 5834
+        },
+        {
+          "name": "MirrorLenses",
+          "vertices": 381,
+          "triangles": 448
+        },
+        {
+          "name": "Trim",
+          "vertices": 132293,
+          "triangles": 157008
+        },
+        {
+          "name": "CaliperRL",
+          "vertices": 371,
+          "triangles": 384
+        },
+        {
+          "name": "WheelRL",
+          "vertices": 5072,
+          "triangles": 5834
+        },
+        {
+          "name": "CaliperRR",
+          "vertices": 371,
+          "triangles": 384
+        },
+        {
+          "name": "LightReverse",
+          "vertices": 348,
+          "triangles": 116
+        },
+        {
+          "name": "LightRight",
+          "vertices": 700,
+          "triangles": 869
+        },
+        {
+          "name": "LightFront",
+          "vertices": 564,
+          "triangles": 814
+        },
+        {
+          "name": "WheelFR",
+          "vertices": 5082,
+          "triangles": 5834
+        },
+        {
+          "name": "LightLeft",
+          "vertices": 700,
+          "triangles": 869
+        }
+      ],
+      "textureCount": 28,
+      "duplicateTextures": []
+    }
+  ],
+  "dlls": [
+    {
+      "file": "AlfaGiulia.dll",
+      "sha256": "0ffb058d86bc35e4fa155bc0504872dba01ee8caa2415d43d6da0f92f6d94aa1",
+      "version": "1.0.7.0"
+    }
+  ],
+  "sourceHashes": {
+    "Scripts\\AlfaGiuliaBodyRepair.cs": "848806c9426648d688e40e2d210852ef23da5aa054635f49ac47010662cabbb3",
+    "Scripts\\AlfaGiuliaEmissionCache.cs": "d3a9897c7bcb817cf55870bd4e36eb1988e34e9b4522006cf975c26203ea073d",
+    "Scripts\\AlfaGiuliaGroundDiagnostics.cs": "0c72792bc6bc04deaaafe66a70bd7873d870be95fb8dd2da79e4bfa6272b8a13",
+    "Scripts\\AlfaGiuliaLighting.cs": "43a2574ea3787f8c08dc82c3dbad0875f3dacf46d4234f5a4b5b50be30a8d880",
+    "Scripts\\AlfaGiuliaMaterials.cs": "38df76332841a453165628b8cfbf7fa8a5d94f413f61b512d2de00a902309306",
+    "Scripts\\AlfaGiuliaMod.cs": "9f3f386be0079f71b3144ef74a76b10c56f0193b16904911cee8101a22d7d47c",
+    "Scripts\\AlfaGiuliaPaint.cs": "8a868311d18bbf8d09195ff8df0e5750b00e996997a1b17bcc375a01bfaaf78b",
+    "Scripts\\AlfaGiuliaPrivateDriver.cs": "df54ea40bbbc81fc9360b4755de1994b7551e1f136241e9d84382f7821b61997",
+    "Scripts\\AlfaGiuliaRoadPresentation.cs": "65105f4fdaf64a16138d74156fcbbccf07ab839186a48e52663dce5bff20dd31",
+    "Scripts\\AlfaGiuliaTrafficLights.cs": "173ae044a1d100e6202c79271e1b7ef34827be43f1b5255648bbec14c474b8d0",
+    "Scripts\\AlfaGiuliaVehicle.cs": "48d13ff5597ab66a5fc4fbfe4db73ff97aa5ee51e6e212422f04556b0cc40a00",
+    "Scripts\\AlfaGiuliaVendor.cs": "14ac5722efd2b72ecdb5849a5af47503e4c278d990cd3ea2320262cd6a228dce",
+    "Scripts\\ModPatcher.cs": "47a8a50025c0046abe41f08e4e7d2b23c25d50c13d38cc5845d80c921da2e814"
+  }
+}

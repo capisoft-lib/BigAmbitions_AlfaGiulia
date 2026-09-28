@@ -80,14 +80,14 @@ namespace AlfaGiulia.Editor
             var type=ScriptableObject.CreateInstance<VehicleType>();
             type.name="AlfaGiulia"; type.vehicleTypeName=AlfaGiuliaMod.VehicleTypeName; type.price=79900;
             // Vehicle metadata and the native physical limiter both use 307 km/h.
-            type.maxFuel=58; type.maxCargoCapacity=4; type.maxSpeed=Mathf.RoundToInt(AlfaGiuliaVehicle.MaximumKph); type.enginePower=375; type.brakeForce=4500; type.turnRadius=32;
+            type.maxFuel=58; type.maxCargoCapacity=4; type.maxSpeed=Mathf.RoundToInt(AlfaGiuliaVehicle.MaximumKph); type.enginePower=375; type.brakeForce=9000; type.turnRadius=32;
             type.damageIntensity=.3f; type.hasRadio=true; type.enclosed=true; type.countsForPersonalGoals=true;
             type.autoDestroyAfterMinutes=-1; type.canGetDirty=true; type.dirtinessTimer=1800; type.cleanByRainTimer=360;
             Save(type,AlfaGiuliaMod.TypePath);
             var manifest=AssetDatabase.LoadAssetAtPath<BAModManifest>(Root+"/ModManifest.asset");
             if(manifest==null) { manifest=ScriptableObject.CreateInstance<BAModManifest>(); AssetDatabase.CreateAsset(manifest,Root+"/ModManifest.asset"); }
-            manifest.ModId="AlfaGiulia"; manifest.DisplayName="Alfa Romeo Giulia Quadrifoglio (2016)"; manifest.Author="capisoft-lib"; manifest.Version="1.0.0";
-            manifest.AssetBundleName="alfagiulia.unity3d"; manifest.TargetPlatforms=ModTargetPlatforms.Windows;
+            manifest.ModId="AlfaGiulia"; manifest.DisplayName="[Car] Alfa Romeo Giulia Quadrifoglio (2016)"; manifest.Author="capisoft-lib"; manifest.Version="1.0.7";
+            manifest.AssetBundleName="alfagiulia.unity3d"; manifest.TargetPlatforms = ModTargetPlatforms.Windows | ModTargetPlatforms.Mac;
             manifest.ModAssembly=AssetDatabase.LoadAssetAtPath<AssemblyDefinitionAsset>(Root+"/AlfaGiulia.asmdef");
             manifest.LocalesFolder=AssetDatabase.LoadAssetAtPath<DefaultAsset>(Root+"/Locales"); manifest.DependenciesFolder=AssetDatabase.LoadAssetAtPath<DefaultAsset>(Root+"/Dependencies");
             EditorUtility.SetDirty(manifest);
@@ -133,12 +133,15 @@ namespace AlfaGiulia.Editor
             var visual=AssetDatabase.LoadAssetAtPath<GameObject>(AlfaGiuliaMod.VisualPath);
             var type=AssetDatabase.LoadAssetAtPath<VehicleType>(AlfaGiuliaMod.TypePath);
             AlfaGiuliaDealerChecks.Verify(type,Check);
+            AlfaGiuliaPrivateDriverChecks.Verify(Check);
             var donor=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Mods/Example-Vehicle/TurboHonza.prefab");
             var before=JsonUtility.ToJson(donor.GetComponent<CarController>().vehicleController.powertrain.engine);
             var holder=new GameObject("Validation");holder.SetActive(false);
             try {
                 var root=AlfaGiuliaVehicle.Create(donor,visual,type,holder.transform);var car=root.GetComponent<CarController>();
                 Check(!root.activeInHierarchy,"Awake deferred");
+                Check(car.vehicleDeformationController.GetComponent<AlfaGiuliaBodyRepair>() != null,
+                    "Giulia body repair attached before native Start");
                 Check(Mathf.Abs(root.GetComponent<Rigidbody>().mass-1620)<.1f,"mass="+root.GetComponent<Rigidbody>().mass);
                 Check(car.vehicleController.powertrain.engine.maxPower==375,"375 kW");
                 Check(car.GetComponent<SpeedLimiterModuleWrapper>().module.speedLimit==307,"307 km/h limiter");

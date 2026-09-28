@@ -52,18 +52,28 @@ namespace AlfaGiulia
             if(Time.unscaledTime>=nextCheck)
             {
                 nextCheck=Time.unscaledTime+.2f;
-                targetOffset=wheels.Length==4 && wheels.All(IsMeasuredFlatRoad) ? .05f : 0f;
+                bool flat=wheels.Length==4;
+                for(int i=0;i<wheels.Length && flat;i++)flat=IsMeasuredFlatRoad(wheels[i]);
+                targetOffset=flat ? .05f : 0f;
             }
             currentOffset=Mathf.MoveTowards(currentOffset,targetOffset,Time.unscaledDeltaTime);
             ApplyOffset(currentOffset);
         }
 
+        private RaycastHit[] roadHits=new RaycastHit[16];
         private bool IsMeasuredFlatRoad(WheelController wheel)
         {
             if(!wheel.IsGrounded)return false;
-            var hits=Physics.RaycastAll(wheel.wheel.worldPosition+Vector3.up*.1f,Vector3.down,
-                wheel.wheel.radius+.2f,~0,QueryTriggerInteraction.Ignore);
-            var hit=hits.Where(h=>!h.collider.transform.IsChildOf(transform)).OrderBy(h=>h.distance).FirstOrDefault();
+            int count;
+            while((count=Physics.RaycastNonAlloc(wheel.wheel.worldPosition+Vector3.up*.1f,Vector3.down,roadHits,
+                wheel.wheel.radius+.2f,~0,QueryTriggerInteraction.Ignore))==roadHits.Length)
+                Array.Resize(ref roadHits,roadHits.Length*2);
+            RaycastHit hit=default;float nearest=float.PositiveInfinity;
+            for(int i=0;i<count;i++) {
+                var candidate=roadHits[i];
+                if(candidate.collider==null || candidate.collider.transform.IsChildOf(transform) || candidate.distance>=nearest)continue;
+                nearest=candidate.distance;hit=candidate;
+            }
             return hit.collider!=null && hit.collider.name.StartsWith("RoadGroundPlane",StringComparison.Ordinal)
                 && hit.normal.y>.999f && Mathf.Abs(hit.point.y-.05f)<.002f;
         }

@@ -1,0 +1,13 @@
+{
+  "mod": "AlfaGiulia",
+  "previousVersion": "1.0.6",
+  "version": "1.0.7",
+  "bundles": {
+    "alfagiulia.unity3d": [
+      "Assets/Mods/AlfaGiulia/AlfaGiulia.asset",
+      "Assets/Mods/AlfaGiulia/AlfaGiuliaVisual.prefab"
+    ]
+  },
+  "prepareModel": false,
+  "sourceModel": "preserve current prepared visual"
+}

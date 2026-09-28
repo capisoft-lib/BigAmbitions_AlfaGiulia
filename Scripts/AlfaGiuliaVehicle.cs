@@ -118,7 +118,7 @@ namespace AlfaGiulia
                 bool front=axle.name.IndexOf("Front",StringComparison.OrdinalIgnoreCase)>=0;
                 axle.antiRollBarForce=front?6500:5000;axle.brakeCoefficient=front?1f:.65f;
             }
-            vc.brakes.maxTorque=4000; vc.steering.maximumSteerAngle=42;
+            vc.brakes.maxTorque=car.vehicleType.brakeForce; vc.steering.maximumSteerAngle=42;
             vc.steering.degreesPerSecondLimit=95;
             // Actual NWH implementation normalizes speed by 50 m/s, despite its tooltip.
             // Keep usable steering at road speeds, like the native curve retained
@@ -171,6 +171,7 @@ namespace AlfaGiulia
                 wheel.damper.bumpRate=3200;wheel.damper.reboundRate=4400;
                 wheel.sideFriction.grip=1.05f;wheel.forwardFriction.grip=1.15f;
                 wheel.forceApplicationPointDistance=.8f;
+                wheel.layerMask |= LayerMask.GetMask("Buildings", "BuildingsOutlined", "BuildingWalls", "ParkingArea");
                 wheel.transform.position = root.transform.TransformPoint(bounds.center + Vector3.up * wheel.spring.maxLength * (2f / 3f));
                 AccessTools.Field(typeof(WheelController), "targetRigidbody").SetValue(wheel, root.GetComponent<Rigidbody>());
                 AccessTools.Field(typeof(WheelController), "loadRating").SetValue(wheel, Mass * 9.81f * .5f);
@@ -217,6 +218,8 @@ namespace AlfaGiulia
             {
                 car.vehicleDeformationController.meshFilters = new[] { bodyRenderer.GetComponent<MeshFilter>() };
                 car.vehicleDeformationController.originalMeshes = Array.Empty<Mesh>();
+                car.vehicleDeformationController.gameObject.AddComponent<AlfaGiuliaBodyRepair>()
+                    .Configure(car, car.vehicleDeformationController, bodyRenderer.GetComponent<MeshFilter>());
                 // Keep native deformation strength; only replace the owned body mesh.
             }
             var targets = (Transform[])AccessTools.Field(typeof(EntityController), "navMeshTargets").GetValue(car);

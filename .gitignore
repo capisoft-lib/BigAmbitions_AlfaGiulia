@@ -40,3 +40,7 @@ build-*.log
 _tmp_*/
 _backup_*/
 
+
+__pycache__/
+*.pyc
+tools~/decimation-studies/

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ModManifest
   m_EditorClassIdentifier: 
   ModId: AlfaGiulia
-  DisplayName: Alfa Romeo Giulia Quadrifoglio (2016)
+  DisplayName: "[Car] Alfa Romeo Giulia Quadrifoglio (2016)"
   Author: capisoft-lib
-  Version: 1.0.0
+  Version: 1.0.7
   AssetBundleName: alfagiulia.unity3d
   ModAssembly: {fileID: 5897886265953266890, guid: ba1e4366ecfa58841bcd2c4be0aaeb1e,
     type: 3}
@@ -23,4 +23,4 @@ MonoBehaviour:
   DependenciesFolder: {fileID: 102900000, guid: 6fb42ec2dfaec7143b78dca83f10de28,
     type: 3}
   EnumsFile: {fileID: 0}
-  TargetPlatforms: 1
+  TargetPlatforms: 3

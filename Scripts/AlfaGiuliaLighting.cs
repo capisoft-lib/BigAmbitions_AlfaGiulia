@@ -9,6 +9,7 @@ namespace AlfaGiulia
         public CarController Car;
         public MeshRenderer Front, Rear, Reverse, Left, Right;
         private MaterialPropertyBlock _properties;
+        private readonly AlfaGiuliaEmissionCache emissionCache=new AlfaGiuliaEmissionCache();
         private CarFeatures _features;
         private MaterialPropertyBlock _blinkerState;
         private static readonly int Emission = Shader.PropertyToID("_EmissiveColor");
@@ -53,16 +54,7 @@ namespace AlfaGiulia
         }
         private void Set(Renderer renderer, Color color)
         {
-            if (renderer == null) return;
-            if (_properties == null) _properties = new MaterialPropertyBlock();
-            renderer.GetPropertyBlock(_properties); _properties.SetColor(Emission, color); renderer.SetPropertyBlock(_properties);
-            // Native LightSource uses an indexed property block. It overrides the
-            // renderer block completely, including properties absent from it.
-            for(int i=0;i<renderer.sharedMaterials.Length;i++){
-                renderer.GetPropertyBlock(_properties,i);
-                _properties.SetColor(Emission,color);
-                renderer.SetPropertyBlock(_properties,i);
-            }
+            emissionCache.Write(renderer,color,false);
         }
     }
 }

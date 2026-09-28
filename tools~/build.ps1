@@ -1,10 +1,13 @@
 param([string]$ReuseProject,[string]$BuildRoot)
+foreach ($pathArgument in $PSBoundParameters.Values) {
+    if ($pathArgument -is [string] -and $pathArgument -match ('(^|[\\/])\.' + 'analysis([\\/]|$)')) { throw 'Legacy workspace paths are forbidden; use the system temporary directory.' }
+}
 $ErrorActionPreference='Stop'
 $modRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $modRoot '../../..'))
 $workspaceRoot=Split-Path $projectRoot -Parent
 if($env:BA_MOD_BUILD_CLI) { throw 'Unset BA_MOD_BUILD_CLI before output-only build.' }
-$scratchRoot=Join-Path $workspaceRoot '.analysis/alfagiulia/builds'
+$scratchRoot=Join-Path ([IO.Path]::GetTempPath()) 'BigAmbitions/alfagiulia/builds'
 if($BuildRoot) { $scratchRoot=[IO.Path]::GetFullPath($BuildRoot).TrimEnd('\') }
 $build=Join-Path $scratchRoot (Get-Date -Format 'yyyyMMdd-HHmmss')
 if($ReuseProject) {
@@ -69,3 +72,4 @@ Get-ChildItem -LiteralPath $output -Recurse -File | ForEach-Object {
     [pscustomobject]@{File=$_.FullName.Substring($output.Length+1);Bytes=$_.Length;SHA256=(Get-FileHash -LiteralPath $_.FullName).Hash}
 } | ConvertTo-Json | Set-Content (Join-Path $build 'package.json')
 [pscustomobject]@{Output=$output;Build=$build;Log=$log;Installed=$false} | ConvertTo-Json
+& (Join-Path $workspaceRoot 'scripts/clear-unity-build-cache.ps1') -Project $build

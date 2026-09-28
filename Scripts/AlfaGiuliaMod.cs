@@ -14,8 +14,8 @@ using Object = UnityEngine.Object;
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("AlfaGiulia.Editor")]
 [assembly: RegisterModClass(typeof(AlfaGiulia.AlfaGiuliaMod))]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.7.0")]
+[assembly: AssemblyFileVersion("1.0.7.0")]
 namespace AlfaGiulia
 {
     [ModEntryOnInitializationLoad]
@@ -28,6 +28,7 @@ namespace AlfaGiulia
         private const string BundleKey = "AssetBundles/alfagiulia.unity3d";
         private const string PrefabPath = "Prefabs/Vehicles/PlayerVehicles/alfagiulia.prefab";
         private static VehicleType _type;
+        private static bool _registered;
         private static GameObject _visual, _storage, _template;
         private static IModLogger _logger;
         private ModPatcher _patcher;
@@ -36,6 +37,7 @@ namespace AlfaGiulia
 
         public Task OnLoadAsync(ModContext context)
         {
+            if(_registered)return Task.CompletedTask;
             _logger = context.Logger;
             try
             {
@@ -46,15 +48,18 @@ namespace AlfaGiulia
                 if (_type == null || _visual == null) throw new InvalidOperationException("AlfaGiulia assets missing.");
                 AlfaGiuliaMaterials.Repair(_visual);
                 _patcher = new ModPatcher("capisoft.alfagiulia");
+                AlfaGiuliaBodyRepair.Install(_patcher);
                 _patcher.Patch(AccessTools.DeclaredMethod(typeof(PrefabHelper), "LoadPrefab", new[] { typeof(string) }),
                     prefix: new HarmonyMethod(typeof(AlfaGiuliaMod), nameof(LoadPrefab)));
 
                 _patcher.Patch(AccessTools.Method(typeof(ContractVehicleForSale), nameof(ContractVehicleForSale.GetSpecs)),
                     postfix: new HarmonyMethod(typeof(AlfaGiuliaMod), nameof(ShowMaximumSpeed)));
+                AlfaGiuliaPrivateDriver.Install(_patcher, _visual);
                 if (!ModdingAPI.RegisterModVehicleType(_type)) throw new InvalidOperationException("AlfaGiulia ID registration failed.");
+                _registered=true;
                 _runtime = new GameObject("AlfaGiulia.Dealer"); Object.DontDestroyOnLoad(_runtime);
                 RegisterDealers(_runtime);
-                _logger.Info("[AlfaGiulia] 1.0.0: Giulia Quadrifoglio 2.9 V6, 375 kW, 600 Nm, RWD, 8-speed, 307 km/h. General US Trucks and The Hamptons Axis special order.");
+                _logger.Info("[AlfaGiulia] 1.0.7: Giulia Quadrifoglio 2.9 V6, 375 kW, 600 Nm, RWD, 8-speed, 307 km/h. General US Trucks and The Hamptons Axis special order.");
                 return Task.CompletedTask;
             }
             catch { OnUnloadAsync(); throw; }
@@ -96,8 +101,10 @@ namespace AlfaGiulia
         {
 
             _patcher?.UnpatchAll(_patcher.Id); _patcher = null;
+            AlfaGiuliaPrivateDriver.Unload();
             if (_runtime != null) Object.Destroy(_runtime); _runtime = null;
-            if (_type != null) ModdingAPI.UnregisterModVehicleType(VehicleTypeName);
+            if (_registered && _type != null) ModdingAPI.UnregisterModVehicleType(VehicleTypeName);
+            _registered=false;
             if (_storage != null) Object.Destroy(_storage);
             _storage = null; _template = null; _type = null; _visual = null;
             return Task.CompletedTask;
